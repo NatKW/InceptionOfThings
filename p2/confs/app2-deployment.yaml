@@ -34,7 +34,8 @@ spec:
                   fieldPath: spec.nodeName
           volumeMounts:
             - name: html
-              mountPath: /usr/share/nginx/html
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
               readOnly: true
       volumes:
         - name: html

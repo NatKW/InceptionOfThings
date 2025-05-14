@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Kubernetes !</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300">
+  <style>
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    .main {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    img {
+      max-width: 200px;
+    }
+    table {
+      margin: 1rem auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem 1rem;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <img src="https://www.cleanpng.com/png-hanover-fairground-hannover-messe-logo-deutsche-me-7002624/" alt="Kubernetes Logo">
+    
+    <div class="content">
+      <div id="message">
+        Hello from app 2
+      </div>
+      <div id="info">
+        <table>
+          <tr>
+            <th>pod:</th>
+            <td>${POD_NAME}</td>
+          </tr>
+          <tr>
+            <th>node:</th>
+            <td>${NODE_NAME}</td>
+          </tr>
+        </table>
+      </div>
+    </div>  
+  </div>
+
+</body>
+</html>

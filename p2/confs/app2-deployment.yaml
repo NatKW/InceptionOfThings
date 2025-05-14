@@ -1,7 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app2-html
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app2.com
+  name: app2
 spec:
   replicas: 3
   selector:
@@ -17,6 +23,15 @@ spec:
           image: nginx
           ports:
             - containerPort: 80
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
           volumeMounts:
             - name: html
               mountPath: /usr/share/nginx/html
@@ -24,5 +39,18 @@ spec:
       volumes:
         - name: html
           configMap:
-            name: app2-index
+            name: app2-html
 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app2
+spec:
+  selector:
+    app: app2
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

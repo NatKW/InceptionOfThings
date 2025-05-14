@@ -9,8 +9,10 @@ vagrant destroy -f
 rm -r ../.vagrant
 
 # 3. Supprimer les fichiers partagés
-rm -f /node-token
-rm -f /kubeconfig.yaml
+rm -rf p2/kubeconfig.yaml
+rm -rf p2/node-token
+
+
 
 # 4. Supprimer les interfaces réseau VirtualBox host-only inutilisées
 VBoxManage list hostonlyifs | grep -E 'Name:|IPAddress:' | awk 'NR%2{printf "%s ", $2; next} {print $2}' | while read -r name ip; do

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1      
+kind: Application                     
+metadata:
+  name: iot-webapps                   
+  namespace: argocd                   
+spec:
+  project: default                    
+  source:                             
+    repoURL: https://gitlab.com/mon-compte/inception-of-things.git
+    targetRevision: main              # ← branche du dépôt Git
+    path: manifests                       # ← dossier dans le dépôt contenant les fichiers YAML
+  destination:                        # ← destination du cluster + namespace
+    server: https://kubernetes.default.svc  # ← URL du cluster (toujours cette valeur en local)
+    namespace: apps                   # ← namespace Kubernetes dans lequel créer les ressources
+  syncPolicy:                         # ← stratégie de synchronisation automatique
+    automated:
+      prune: true                     # ← supprime les objets obsolètes
+      selfHeal: true                  # ← corrige les dérives si quelqu’un modifie à la main

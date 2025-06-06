@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default                    
   source:                             
-    repoURL: https://gitlab.com/mon-compte/inception-of-things.git
+    repoURL: https://github.com/NatKW/InceptionOfThings.git
     targetRevision: main              # ← branche du dépôt Git
     path: manifests                       # ← dossier dans le dépôt contenant les fichiers YAML
   destination:                        # ← destination du cluster + namespace

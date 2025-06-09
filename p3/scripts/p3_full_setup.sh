@@ -1,6 +1,7 @@
-#!/bin/bash
-set -e
-#pour wsl avec Docker natif
+# port forwarding pour Argo CD
+# http://localhost:8081
+# pour terminal wsl avec Docker natif
+
 export DOCKER_HOST=unix:///var/run/docker.sock
 
 echo "[1/7] Création du cluster K3d..."

@@ -1,4 +1,4 @@
-#!/bin/bash
+#environnement Linux (WSL2)
 
 echo "Suppression du cluster K3d 'iot-cluster'..."
 k3d cluster delete iot-cluster
